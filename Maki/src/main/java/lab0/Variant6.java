@@ -86,16 +86,24 @@ public class Variant6 {
     public int[] minMaxTask(int[] array) {
         int min = array[0];
         int max = array[array.length - 1];
+        int minIndex = 0;
+        int maxIndex = array.length - 1;
 
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i + 1] < min) min = array[i + 1];
+            if (array[i + 1] < min) {
+                min = array[i + 1];
+                minIndex = i + 1;
+            }
         }
 
         for (int i = array.length - 1; i > 0; i--) {
-            if (array[i - 1] > max) max = array[i - 1];
+            if (array[i - 1] > max) {
+                max = array[i - 1];
+                maxIndex = i - 1;
+            }
         }
 
-        int[] result = {min, max};
+        int[] result = {minIndex, maxIndex};
         return result;
     }
 
