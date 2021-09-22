@@ -10,23 +10,13 @@ public class Variant6Test {
     ////////////////////////////////////////////////
 
     @Test(dataProvider = "integerDecimalProvider")
-    public void integerDecimalTest(int p1, int p4) {
+    public void integerDecimalTest(int p1, int[] p4) {
         assertEquals(new Variant6().integerDecimalTask(p1), p4);
     }
 
     @DataProvider
     public Object[][] integerDecimalProvider() {
-        return new Object[][] { {23, 2}, {45, 4}, {83, 8} };
-    }
-
-    @Test(dataProvider = "integerUnitsProvider")
-    public void integerUnitsTest(int p1, int p4) {
-        assertEquals(new Variant6().integerUnitsTask(p1), p4);
-    }
-
-    @DataProvider
-    public Object[][] integerUnitsProvider() {
-        return new Object[][] { {23, 3}, {45, 5}, {83, 3} };
+        return new Object[][] { {23, 2, 3}, {45, 4, 5}, {83, 8, 3} };
     }
 
     @Test(expectedExceptions = AssertionError.class)
@@ -138,8 +128,8 @@ public class Variant6Test {
 
     @DataProvider
     public Object[][] minMaxProvider() {
-        return new Object[][] { { new int[] {8, 6, 5, 7, 10, 8, 6}, 5, 10}, { new int[] {43, 36, 33, 25, 28, 20, 18, 15}, 25, 28},
-                { new int[] {132, 127, 86, 76, 34, 21, 14, 6}, 6, 132} };
+        return new Object[][] { { new int[] {8, 6, 5, 7, 10, 8, 6}, 5, 10}, { new int[] {43, 36, 33, 25, 28, 20, 18, 15}, 15, 43},
+                { new int[] {132, 127, 86, 76, 34, 21, 14, 6}, 6, 132}, {new int[] {4, 7, 3, 1, 6, 1, 7, 4, 5}, 1, 7} };
     }
 
     //////////////////////////////////////////

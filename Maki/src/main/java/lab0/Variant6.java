@@ -4,23 +4,15 @@ public class Variant6 {
     /**
      *
      * @param a is a two-digit number
-     * @return decimal part of number
+     * @return decimal and unit part of number
      */
 
-    public int integerDecimalTask(int a) {
+    public int[] integerDecimalTask(int a) {
         assert a > 9 && a < 100: "Parameters should be positive";
-        return a / 10;
-    }
-
-    /**
-     *
-     * @param a is a two-digit number
-     * @return unit part of number
-     */
-
-    public int integerUnitsTask(int a) {
-        assert a > 9 && a < 100: "Parameters should be positive";
-        return a % 10;
+        int[] result = new int[2];
+        result[0] = a / 10;
+        result[1] = a % 10;
+        return result;
     }
 
     /**
@@ -96,13 +88,11 @@ public class Variant6 {
         int max = array[array.length - 1];
 
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i + 1] > array[i]) break;
-            min = array[i + 1];
+            if (array[i + 1] < min) min = array[i + 1];
         }
 
         for (int i = array.length - 1; i > 0; i--) {
-            if (array[i - 1] < array[i]) break;
-            max = array[i - 1];
+            if (array[i - 1] > max) max = array[i - 1];
         }
 
         int[] result = {min, max};
